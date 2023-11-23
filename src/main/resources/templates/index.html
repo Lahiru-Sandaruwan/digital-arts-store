@@ -1,0 +1,96 @@
+<!doctype html>
+<html class="no-js"  xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org" lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+    <title>Digital Art Online Store</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
+
+</head>
+
+<body class="theme-1" >
+          
+        <div class="container"  sec:authorize="hasAnyRole('Admin')">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" th:href="@{/index}">Digital Store</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" th:href="@{/logout}">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="container">
+                <a th:href="@{/addItem}"><button type="button" class="btn btn-primary btn-rounded btn-fw">+ Add New Item</button></a>
+
+                <!-- Close button for the popup -->
+                <div class="row col-md-10">
+                    <h2>List of Items</h2>
+                </div>
+                <table class="table table-bordered table-hover" id="guest_table">
+                    <thead class="table-dark">
+                    <tr>
+                        <th>Item Id</th>
+                        <th>Item Code</th>
+                        <th>Item Name</th>
+                        <th>Image</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody id="guest_tbody">
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+                <!-- Your form content goes here -->
+                <form>
+                    <div class="form-group first">
+                        <label >Item Name</label>
+                        <input type="text" class="form-control" id="itemCode" name="Name" required>
+                    </div>
+                    <div class="form-group first">
+                        <label for="itemcode">Item Code</label>
+                        <input type="text" class="form-control" id="itemName" name="Na" required>
+                    </div>
+                    <div class="form-group first">
+                        <label>Description</label>
+                        <input type="text" class="form-control" id="username" name="Username" required>
+                    </div>
+                    <div class="form-group last mb-4">
+                        <label>Upload Item Image</label>
+                        <br>
+                    </div>
+                    <div class="form-group last mb-4" >
+                        <input style="font-size: 12px;" id="imgUrl" type="file" class="form-control" name="image" accept="image/x-png,image/gif,image/jpeg,image/jpg" required>
+                    </div>
+                    </label>
+                    <input id="myButton" type="submit" value="Add Item" onclick="saveItems()"
+                                                                 class="btn text-white btn-block btn-primary">
+                </form>
+                <!-- Close button for the popup -->
+                <button type="button"  id="closePopup">Close</button>
+            </div>
+        </div>
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.7.0/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script th:src="@{/js/popper.min.js}"></script>
+        <script th:src="@{/js/bootstrap.min.js}"></script>
+<!--        <script th:src="@{/project/jquery.min.js}"></script>-->
+        <script th:src="@{/project/item.js}"></script>
+ </body>
+</html>

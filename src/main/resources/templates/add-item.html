@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <!--    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/cssLoging/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/fontsLoging.icomoon/style.css}">
+
+    <link rel="stylesheet" th:href="@{/cssLoging/owl.carousel.min.css}">
+    <!-- Style -->
+    <link rel="stylesheet" th:href="@{/cssLoging/style.css}">
+
+    <link th:href="@{/assetsLoging/img/LOGO.png}" rel="icon">
+    <title>Login</title>
+</head>
+<body>
+
+<div class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 order-md-2">
+
+            </div>
+            <div class="col-md-6 contents">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="mb-4">
+                            <h3>Add new Item to <strong>Digital Store</strong></h3>
+                            <p class="mb-4"></p>
+                        </div>
+                        <form>
+
+                            <br/>
+
+                            <div class="form-group first">
+                                <label >Code</label>
+                                <input type="text" class="form-control" id="itemCode" name="Name" required>
+
+                            </div>
+
+                            <div class="form-group first">
+                                <label >Name</label>
+                                <input type="text" class="form-control" id="itemName" name="Username" required>
+
+                            </div>
+
+                            <div class="form-group last mb-4">
+                                <label>Upload a profile picture</label>
+                                <br>
+                            </div>
+                            <div class="form-group last mb-4" >
+
+                                <input type="file" id="fileInput">
+                                <input type="text" id="filenameInput" placeholder="Enter filename">                            </div>
+
+                            </label>
+                            <button type="submit" onclick="saveItems()" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/project/jquery.min.js}"></script>
+<script th:src="@{/project/item.js}"></script>
+
+
+</body>
+
+</html>
